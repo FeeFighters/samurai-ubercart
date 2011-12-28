@@ -1,0 +1,28 @@
+**************************************
+ Samurai Payment Method Integration with Drupal / Ubercart
+ By FeeFighters
+
+**************************************
+Installation Instructions 
+1.	After installing the Drupal, put the samurai module in the sites/all/modules directory.
+2.	The Dependent modules with this module are Ubercart and Token. Download Ubercart and token and put them in the modules folder.
+3.	Enable all the above three modules by visiting the link admin/build/modules.
+4.	Enter your Merchant Key, Merchant Password and Processor Token by visiting the link admin/store/settings/payment/edit/methods.  You get your 
+Merchant Key, Merchant Password and Processor Token from http://samurai.feefighters.com. Signing up for an account takes 
+just a few seconds and is free.
+5.	Enable the Samurai Payment Method from backend.
+6.	Now add products to the cart from front end and process payments using Samurai Payment Method.
+
+This plugin includes the Samurai PHP client library. 
+
+This plugin will be uploaded to the Ubercart modules site, but the latest version will always be available at: 
+https://github.com/FeeFighters/samurai-uber-cart. When used from github please notice that the PHP library
+is incorporated as a git submodule so you must run git submodule init; git submodule update to pull it down.
+
+This integration of X-Cart into the Samurai payment gateway uses the Server To Server method of integration.  
+For more information on Server To Server: 
+https://samurai.feefighters.com/developers/php/api-reference#server-to-server-payment-method-api
+
+For more information on Samurai visit: http://samurai.feefighters.com
+For the Samurai documentation visit: https://samurai.feefighters.com/developers
+For customer support visit our chatroom: http://samurai.feefighters.com/chat

@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Install file for the samurai gateway module... 
+ */
+ 
+ function uc_samuraigateway_schema() {
+  $schema = array();
+
+  $schema['uc_samurai'] = array(
+    'description' => 'Stores samurai transaction response tokenid and transactionid.',
+    'fields' => array(
+      'samurai_data_id' => array(
+        'description' => 'Unique identifier for samurai response data.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+
+      'order_id' => array(
+        'description' => 'Order_id for the specific order to be processed',
+        'type' => 'int',
+		'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+	   'user_id' => array(
+        'description' => 'User id of the Customer',
+		'type'     => 'int',
+		'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'reference_id' => array(
+        'description' => 'The reference id for the transaction',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'transaction_token' => array(
+        'description' => 'Transaction token for the transaction.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+	   'processor_token' => array(
+        'description' => 'Processor token for the transaction.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'payment_method_token' => array(
+        'description' => 'Payment method token generated after the payment method created.',
+        'type' => 'varchar',
+        'not null' => TRUE,
+         'length' => 255,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+	   'transaction_type' => array(
+        'description' => 'Transaction type for the transaction.',
+        'type' => 'varchar',
+        'not null' => TRUE,
+         'length' => 255,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+	  
+     
+    ),
+    'indexes' => array(
+      'order_id' => array('order_id'),
+    ),
+    'primary key' => array('samurai_data_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+ function uc_samuraigateway_install() {
+	drupal_install_schema('uc_samuraigateway');
+ }
+ 
+ 
+function uc_samuraigateway_uninstall() {
+  drupal_uninstall_schema('uc_samuraigateway');
+}
+
+function uc_samuraigateway_update_last_removed() {
+  return 2;
+}
+
+
