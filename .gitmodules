@@ -1,0 +1,3 @@
+[submodule "samurai-client-php"]
+	path = samurai-client-php
+	url = https://seanharper@github.com/FeeFighters/samurai-client-php.git
